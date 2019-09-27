@@ -92,6 +92,11 @@ export default class Markdown extends Component {
   renderer = null;
   markdownParser = null;
 
+  constructor(props) {
+    super(props);
+    this.updateSettings(props);
+  }
+
   /**
    * Only when the copy changes will the markdown render again.
    * @param nextProps
@@ -183,16 +188,8 @@ export default class Markdown extends Component {
   /**
    *
    */
-  componentWillMount() {
+  componentDidMount() {
     this.updateSettings(this.props);
-  }
-
-  /**
-   *
-   * @param nextProps
-   */
-  componentWillReceiveProps(nextProps) {
-    this.updateSettings(nextProps);
   }
 
   /**
